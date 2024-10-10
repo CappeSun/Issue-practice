@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>HereThere!</title>
+	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 	<header>
@@ -21,78 +22,5 @@
 		</div>
 	</div>
 </body>
-<style type="text/css">
-	body{
-		margin: 0;
-	}
-	header{
-		height: 80px;
-		width: 100vw;
-		display: flex;
-		justify-content: center;
-	}
-	header > button{
-		margin: 10px 10px;
-		padding: 10px 20px;
-		font-size: 20px;
-	}
-	.pageCont{
-		height: calc(100vh - 80px);
-		width: 100vw;
-		position: relative;
-		overflow: hidden;
-	}
-	.pageCont > div{
-		height: 100%;
-		width: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-	.pageCont > div > h2{
-		width: 80%;
-		margin: 60px auto 20px auto;
-		text-align: center;
-	}
-	.pageCont > div > p{
-		width: 80%;
-		margin: auto;
-		text-align: center;
-	}
-	#page2{
-		opacity: 0;
-	}
-</style>
-<script type="text/javascript">
-	const page1 = document.getElementById('page1');
-	const page2 = document.getElementById('page2');
-	const hereBtn = document.getElementById('hereBtn');
-	const thereBtn = document.getElementById('thereBtn');
-
-	const animations = {
-		pageLeft: [
-			{offset: 0, opacity: '1', left: '0'},
-			{offset: 1, opacity: '0', left: '-50px'}
-		],
-		pageRight: [
-			{offset: 0, opacity: '1', left: '0'},
-			{offset: 1, opacity: '0', left: '50px'}
-		]
-	};
-	let page = 1;
-
-	hereBtn.addEventListener('click', () =>{
-		if (page == 1) return;
-		page = 1;
-		page2.animate(animations.pageRight, {duration: 150, easing: 'ease-in', fill: 'forwards'});
-		page1.animate(animations.pageLeft, {duration: 150, delay: 100, easing: 'ease-in', direction: 'reverse', fill: 'forwards'});
-	});
-
-	thereBtn.addEventListener('click', () =>{
-		if (page == 2) return;
-		page = 2;
-		page1.animate(animations.pageLeft, {duration: 150, easing: 'ease-in', fill: 'forwards'});
-		page2.animate(animations.pageRight, {duration: 150, delay: 100, easing: 'ease-in', direction: 'reverse', fill: 'forwards'});
-	});
-</script>
+<script src="index.js"></script>
 </html>
